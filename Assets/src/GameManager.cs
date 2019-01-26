@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
     public GameObject player;
     public Transform bed;
+    public Transform food;
 	public float friction = 100f;
     [SerializeField] float gravity = 100f;
     [SerializeField] float maxFallSpeed = 25;

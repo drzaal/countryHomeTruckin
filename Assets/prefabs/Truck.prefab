@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4935570063046582}
   - component: {fileID: 33439967635646474}
   - component: {fileID: 65351990639759234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cage Side F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4725311493652802}
   - component: {fileID: 33700698384826608}
   - component: {fileID: 65035602202250076}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cage Side B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 54841077530420774}
   - component: {fileID: 65979729408268522}
   - component: {fileID: 114669650768147574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Truck
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4573416876066012}
   - component: {fileID: 33118817860637470}
   - component: {fileID: 65077199790806724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cage Side E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4486058145498996}
   - component: {fileID: 33799787060068864}
   - component: {fileID: 65235937589552500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cage Side D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4819769541748068}
   - component: {fileID: 33977825595046664}
   - component: {fileID: 65232034088280490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cage Side C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,23 +207,8 @@ GameObject:
   - component: {fileID: 4327038278650256}
   - component: {fileID: 33309755365375226}
   - component: {fileID: 65872060081788756}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cage Side A
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1963435327154068
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4511311097649330}
-  m_Layer: 0
-  m_Name: Possessions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,32 +328,18 @@ Transform:
   m_Father: {fileID: 4823589746535218}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!4 &4511311097649330
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1963435327154068}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.0596, z: -0.0379}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4534579476927480}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4534579476927480
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376557676671276}
-  m_LocalRotation: {x: 0, y: 0.00004896148, z: 0, w: 1}
-  m_LocalPosition: {x: -13.9210825, y: -4.844474e-20, z: 2.181757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20.7}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4678286486173758}
   - {fileID: 4823589746535218}
-  - {fileID: 4511311097649330}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -832,58 +803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e8b55ac2bc7184db211e000d7f6e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0
   accelerateSpeed: 1
   reverseSpeed: 1
   turnSpeed: 50
-  accelerationTime: 1
-  reverseTime: 1
-  accelerationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverseCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  bed: {fileID: 4511311097649330}
+  velocity: {x: 0, y: 0, z: 0}
+  possessions: {fileID: 0}

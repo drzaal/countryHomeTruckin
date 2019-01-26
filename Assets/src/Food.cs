@@ -6,47 +6,56 @@ public class Food : MonoBehaviour {
 
 	[SerializeField] float force;
 	[SerializeField] float fallSpeed;
-	private Rigidbody rb;
-	private BoxCollider bc;
-	private SphereCollider sc;
 
-	private bool isPicked;
-	private bool isFalling;
+	enum FoodType { PIG, PUMPKIN }
+
+	[SerializeField] FoodType foodType;
+
+	private Rigidbody rb;
+	private SphereCollider sc;
+	private Vector3 ogScale;
 	private bool isContained;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-		bc = GetComponent<BoxCollider>();
 		sc = GetComponent<SphereCollider>();
-		isPicked = false;
-		isFalling = false;
+		ogScale = transform.localScale;
 		isContained = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!isContained) {
-			if (isFalling && !isContained) {
-				transform.position = GameManager.instance.bed.position;
-				isContained = true;
-				sc.isTrigger = false;
-				rb.isKinematic = false;
-			} else if (isPicked && rb.velocity.y < 0) {
-				isFalling = true;
-				rb.isKinematic = true;
-			}
-		}
+		
 	}
 
 	public void Pickup() {
-		if (!isPicked && !isFalling && !isContained) {
-			transform.localScale = new Vector3(.5f, .5f, .5f);
-			Physics.IgnoreCollision(GameManager.instance.player.GetComponent<BoxCollider>(), sc);
-			transform.position = GameManager.instance.bed.position;
+		if (!isContained) {
+			transform.localScale = new Vector3(.5f, .5f, .5f); // make smaller
+			gameObject.layer = 9; // change layer for collisions
+			transform.position = GameManager.instance.bed.position; // put in cage
 			isContained = true;
 			sc.isTrigger = false;
 			rb.isKinematic = false;
 		}
+	}
+
+	public void Throw() {
+		gameObject.layer = 0;
+		isContained = false;
+		rb.AddForce(new Vector3(Random.Range(-15, 15), Random.Range(5, 10), Random.Range(-15, 15)), ForceMode.Impulse);
+	}
+
+	void OnCollisionEnter(Collision other) {
+		Transform item = other.transform;
+		if (item.CompareTag("Ground")) {
+			LandOnGround();
+		}
+	}
+
+	public void LandOnGround() {
+		sc.isTrigger = true;
+		rb.isKinematic = true;
+		transform.localScale = ogScale; // make bigger
 	}
 }

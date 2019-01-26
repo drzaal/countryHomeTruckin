@@ -4,31 +4,37 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	[SerializeField] float maxSpeed;
+	// [SerializeField] float maxSpeed;
 	[SerializeField] float accelerateSpeed;
 	[SerializeField] float reverseSpeed;
 	[SerializeField] float turnSpeed;
 
-	[SerializeField] float accelerationTime;
-	[SerializeField] float reverseTime;
+	public Vector3 velocity;
 
-	[SerializeField] AnimationCurve accelerationCurve;
-	[SerializeField] AnimationCurve reverseCurve;
+	// [SerializeField] float accelerationTime;
+	// [SerializeField] float reverseTime;
 
-	[SerializeField] Transform bed;
+	// [SerializeField] AnimationCurve accelerationCurve;
+	// [SerializeField] AnimationCurve reverseCurve;
+
+	// [SerializeField] Transform bed;
 	[SerializeField] Transform possessions;
 
 	private Rigidbody rb;
-	private Vector3 velocity;
-	private float isAccelerating;
-	private float isReversing;
+	// private Vector3 velocity;
+	// private float isAccelerating;
+	// private float isReversing;
+	private float crashTime;
+	private bool destruction;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-		velocity = new Vector3(0, 0, 0);
-		isAccelerating = 0;
-		isReversing = 0;
+		// velocity = new Vector3(0, 0, 0);
+		// isAccelerating = 0;
+		// isReversing = 0;
+		crashTime = Time.time;
+		destruction = false;
 	}
 	
 	// Update is called once per frame
@@ -62,6 +68,8 @@ public class Player : MonoBehaviour {
 			transform.Rotate(0, xmove * turnSpeed * Time.deltaTime, 0);
 		}
 
+		velocity = rb.velocity;
+
 		/* else {
 			// Decelerate();
 			// velocity = new Vector3(velocity.x, velocity.y, zmove * Time.deltaTime);
@@ -92,7 +100,13 @@ public class Player : MonoBehaviour {
 	void OnCollisionEnter(Collision other) {
 		Transform item = other.transform;
 		if (item.CompareTag("Obstacle")) {
-			DropItems();
+			if (Mathf.Abs(velocity.x) > 15 || Mathf.Abs(velocity.z) > 15) {
+				float temp = Time.time;
+				if (temp - crashTime > 3) {
+					crashTime = temp;
+					DropItems();
+				}
+			}
 		}
 	}
 
@@ -103,10 +117,10 @@ public class Player : MonoBehaviour {
 			item.GetComponent<Food>().Pickup();
 		}
 
-		/* if (other.transform.CompareTag("HomeZone"))
+		if (other.transform.CompareTag("HomeZone") && GameManager.instance != null)
 		{
-			GameManager.instance?.winLevel();
-		} */
+			GameManager.instance.winLevel();
+		}
     }
 
 	void Pickup(Transform item) {
@@ -115,10 +129,11 @@ public class Player : MonoBehaviour {
 
 	void DropItems() {
 		if (possessions.childCount > 0) {
-			int toDrop = 2;
+			int toDrop = (int) Mathf.Max(1, Mathf.Floor(possessions.childCount / 3));
 			while (toDrop > 0) {
-				Transform child = possessions.GetChild(0);
-				child.parent = null;
+				Transform child = possessions.GetChild(Random.Range(0, possessions.childCount));
+				child.parent = GameManager.instance.food;
+				child.GetComponent<Food>().Throw();
 				toDrop -= 1;
 				if (toDrop > possessions.childCount) {
 					toDrop = 0;
