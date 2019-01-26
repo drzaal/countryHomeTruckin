@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 	[SerializeField] AnimationCurve reverseCurve;
 
 	[SerializeField] Transform bed;
+	[SerializeField] Transform possessions;
 
 	private Rigidbody rb;
 	private Vector3 velocity;
@@ -88,9 +89,17 @@ public class Player : MonoBehaviour {
 
 	}
 
+	void OnCollisionEnter(Collision other) {
+		Transform item = other.transform;
+		if (item.CompareTag("Obstacle")) {
+			DropItems();
+		}
+	}
+
 	void OnTriggerEnter(Collider other) {
 		Transform item = other.transform;
-		if (other.transform.CompareTag("Food")) {
+		if (item.CompareTag("Food")) {
+			item.parent = possessions;
 			item.GetComponent<Food>().Pickup();
 		}
 
@@ -102,5 +111,19 @@ public class Player : MonoBehaviour {
 
 	void Pickup(Transform item) {
 		
+	}
+
+	void DropItems() {
+		if (possessions.childCount > 0) {
+			int toDrop = 2;
+			while (toDrop > 0) {
+				Transform child = possessions.GetChild(0);
+				child.parent = null;
+				toDrop -= 1;
+				if (toDrop > possessions.childCount) {
+					toDrop = 0;
+				}
+			}
+		}
 	}
 }
