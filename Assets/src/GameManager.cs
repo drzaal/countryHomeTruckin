@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
+    public GameObject player;
+    public Transform bed;
 	public float friction = 100f;
     [SerializeField] float gravity = 100f;
     [SerializeField] float maxFallSpeed = 25;
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour {
         } else if (instance != this) {
             Destroy(gameObject);
         }
+
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 
     public void winLevel()

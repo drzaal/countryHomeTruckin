@@ -60,6 +60,7 @@ public class Player : MonoBehaviour {
 		if (Mathf.Abs(rb.velocity.x) > 0.001f && Mathf.Abs(rb.velocity.z) > 0.001f && xmove != 0) {
 			transform.Rotate(0, xmove * turnSpeed * Time.deltaTime, 0);
 		}
+		
 		/* else {
 			// Decelerate();
 			// velocity = new Vector3(velocity.x, velocity.y, zmove * Time.deltaTime);
@@ -69,6 +70,10 @@ public class Player : MonoBehaviour {
 
 		// velocity = new Vector3(velocity.x, velocity.y, Mathf.Max(0, velocity.z));
 		// transform.position = new Vector3(transform.position.x + velocity.x, transform.position.y, transform.position.z + velocity.z);
+	}
+
+	void LateUpdate() {
+		transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
 	}
 
 	void Accelerate() {
@@ -86,7 +91,6 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		Transform item = other.transform;
 		if (other.transform.CompareTag("Food")) {
-			item.parent = bed;
 			item.GetComponent<Food>().Pickup();
 		}
 
