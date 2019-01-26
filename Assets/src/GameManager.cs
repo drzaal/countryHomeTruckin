@@ -28,5 +28,6 @@ public class GameManager : MonoBehaviour {
     public void winLevel()
     {
         // Display win screen
+        SceneManager.LoadScene("Menu");
     }
 }
