@@ -6,6 +6,11 @@ public class Food : MonoBehaviour {
 
 	[SerializeField] float force;
 	[SerializeField] float fallSpeed;
+
+	enum FoodType { PIG, PUMPKIN }
+
+	[SerializeField] FoodType foodType;
+
 	private Rigidbody rb;
 	private BoxCollider bc;
 	private SphereCollider sc;
@@ -26,7 +31,10 @@ public class Food : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!isContained) {
+		if (isContained) {
+			
+		}
+		else {
 			if (isFalling && !isContained) {
 				transform.position = GameManager.instance.bed.position;
 				isContained = true;

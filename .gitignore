@@ -5,3 +5,5 @@ obj
 .vscode
 Library
 Logs
+*.sln
+UIElementsSchema
