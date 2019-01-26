@@ -338,11 +338,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1097753794007447277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4abddd966652c4d1ab8c7ad3e87e7c54, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a411a0a37c926e4689483acad3a5982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDinner: 140
-  truckCondition: 100
+  timeToDinner: 0
+  truckCondition: 0
   mealValue: 0
 --- !u!1 &1097753794162537384
 GameObject:

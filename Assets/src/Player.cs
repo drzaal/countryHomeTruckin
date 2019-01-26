@@ -60,7 +60,7 @@ public class Player : MonoBehaviour {
 		if (Mathf.Abs(rb.velocity.x) > 0.001f && Mathf.Abs(rb.velocity.z) > 0.001f && xmove != 0) {
 			transform.Rotate(0, xmove * turnSpeed * Time.deltaTime, 0);
 		}
-		
+
 		/* else {
 			// Decelerate();
 			// velocity = new Vector3(velocity.x, velocity.y, zmove * Time.deltaTime);
@@ -94,10 +94,17 @@ public class Player : MonoBehaviour {
 			item.GetComponent<Food>().Pickup();
 		}
 
+<<<<<<< HEAD
 		if (other.transform.CompareTag("HomeZone") && GameManager.instance != null)
 		{
 			GameManager.instance.winLevel();
 		}
+=======
+		/* if (other.transform.CompareTag("HomeZone"))
+		{
+			GameManager.instance?.winLevel();
+		} */
+>>>>>>> 80c8bf35fb8b95f8362bd54c3a2f6875066ca351
     }
 
 	void Pickup(Transform item) {
