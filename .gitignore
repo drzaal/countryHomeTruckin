@@ -1,0 +1,6 @@
+*.csproj
+Temp
+obj
+.vscode
+Library
+*.meta

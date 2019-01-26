@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "homeWhar", "Assembly-CSharp.csproj", "{BDB5B1C7-465A-3F5A-958F-B143DF60F06F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "homeWhar", "Assembly-CSharp-Editor.csproj", "{256500EA-A5F2-6188-75CA-ECCB333DAC83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDB5B1C7-465A-3F5A-958F-B143DF60F06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDB5B1C7-465A-3F5A-958F-B143DF60F06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDB5B1C7-465A-3F5A-958F-B143DF60F06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDB5B1C7-465A-3F5A-958F-B143DF60F06F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256500EA-A5F2-6188-75CA-ECCB333DAC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256500EA-A5F2-6188-75CA-ECCB333DAC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256500EA-A5F2-6188-75CA-ECCB333DAC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256500EA-A5F2-6188-75CA-ECCB333DAC83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
