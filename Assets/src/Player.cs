@@ -94,9 +94,9 @@ public class Player : MonoBehaviour {
 			item.GetComponent<Food>().Pickup();
 		}
 
-		if (other.transform.CompareTag("HomeZone"))
+		if (other.transform.CompareTag("HomeZone") && GameManager.instance != null)
 		{
-			GameManager.instance?.winLevel();
+			GameManager.instance.winLevel();
 		}
     }
 
