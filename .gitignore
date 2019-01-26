@@ -1,6 +1,8 @@
 *.csproj
+.DS_Store
 Temp
 obj
 .vscode
 Library
 *.meta
+Logs

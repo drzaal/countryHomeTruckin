@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void startGame() {
 		if (isStarting) return;
-		SceneManager.LoadScene("JauntThruCountry");
+		SceneManager.LoadScene("Game");
 		isStarting = true;
 	}
 
