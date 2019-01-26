@@ -89,6 +89,11 @@ public class Player : MonoBehaviour {
 			item.parent = bed;
 			item.GetComponent<Food>().Pickup();
 		}
+
+		if (other.transform.CompareTag("HomeZone"))
+		{
+			GameManager.instance?.winLevel();
+		}
     }
 
 	void Pickup(Transform item) {
