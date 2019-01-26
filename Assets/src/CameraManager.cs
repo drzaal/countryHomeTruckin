@@ -12,11 +12,6 @@ public class CameraManager : MonoBehaviour {
     }
 
     void Update() {
-        Vector3 pos = target.transform.position;
-        Vector3 d = distance;
-        transform.position = new Vector3(
-            target.transform.position.x - distance.x, 
-            transform.position.y, 
-            target.transform.position.z - distance.z);
+        transform.position = new Vector3(target.transform.position.x - distance.x, transform.position.y, target.transform.position.z - distance.z);
     }
 }
