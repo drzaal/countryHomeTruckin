@@ -94,17 +94,10 @@ public class Player : MonoBehaviour {
 			item.GetComponent<Food>().Pickup();
 		}
 
-<<<<<<< HEAD
 		if (other.transform.CompareTag("HomeZone") && GameManager.instance != null)
 		{
 			GameManager.instance.winLevel();
 		}
-=======
-		/* if (other.transform.CompareTag("HomeZone"))
-		{
-			GameManager.instance?.winLevel();
-		} */
->>>>>>> 80c8bf35fb8b95f8362bd54c3a2f6875066ca351
     }
 
 	void Pickup(Transform item) {
