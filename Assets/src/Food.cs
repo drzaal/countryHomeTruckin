@@ -7,7 +7,7 @@ public class Food : MonoBehaviour {
 	[SerializeField] float force;
 	[SerializeField] float fallSpeed;
 
-	public enum FoodType { PIG, PUMPKIN, CORN, COW, TURKEY }
+	public enum FoodType { PIG, PUMPKIN, CORN, COW, TURKEY, CABBAGE, POTATO }
 
 	[SerializeField] public FoodType foodType;
 

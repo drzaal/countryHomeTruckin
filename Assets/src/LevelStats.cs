@@ -9,14 +9,18 @@ public struct LevelStats
     public int cows;
     public int pumpkins;
     public int turkeys;
+    public int potatoes;
+    public int cabbages;
 
     public int toSumPoints() {
-        int sum = chickens + corn + cows + pumpkins + turkeys;
+        Debug.Log(JsonUtility.ToJson(this));
+        int sum = pigs + chickens + corn + cows + pumpkins + turkeys + cabbages + potatoes;
 
+        Debug.Log(sum);
         return sum; 
     }
     public float toStdPoints() {
-        float std = stdDev(new float[] { chickens, corn, cows, pumpkins, turkeys});
+        float std = stdDev(new float[] { pigs, chickens, corn, cows, pumpkins, turkeys, cabbages, potatoes});
         return 1 - std;
     }
 
@@ -26,9 +30,9 @@ public struct LevelStats
         float avg = 0f;
         float std = 0f;
         if (n == 0) return 0;
-        for (int i=0;i<n;i++) sum += input[n];
+        for (int i=0;i<n;i++) sum += input[i];
         avg = sum/ n;
-        for (int i=0;i<n;i++) std += Mathf.Pow(avg - input[n], 2);
+        for (int i=0;i<n;i++) std += Mathf.Pow(avg - input[i], 2);
 
         return std/n;
     }

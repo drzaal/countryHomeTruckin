@@ -120,15 +120,15 @@ public class Player : MonoBehaviour {
 			Pickup();
 		}
 
-		if (other.transform.CompareTag("Finish") && GameManager.instance != null)
+		if (other.transform.CompareTag("HomeZone") && GameManager.instance != null)
 		{
 			GameManager.instance.winLevel();
 		}
     }
 
-	void Pickup() {
-
-		if (possessions.childCount > 0) {
+	void CountFoods()
+	{
+if (possessions.childCount > 0) {
 			Food[] foods = possessions.GetComponentsInChildren<Food>();
 			if (foods == null) throw new System.Exception();
 
@@ -137,7 +137,9 @@ public class Player : MonoBehaviour {
 			int cows = 0;
 			int turkeys = 0;
 			int chickens = 0;
+			int potatoes = 0;
 			int corn = 0;
+			int cabbage = 0;
 
 			foreach (Food food in foods)
 			{
@@ -146,8 +148,10 @@ public class Player : MonoBehaviour {
 					case Food.FoodType.PUMPKIN: pumpkins++; break;
 					case Food.FoodType.PIG: pigs++; break;
 					case Food.FoodType.TURKEY: turkeys++; break;
-					//case Food.FoodType.CHICKEN: chickens++; break;
+					case Food.FoodType.POTATO: potatoes++; break;
+					case Food.FoodType.CABBAGE: cabbage++; break;
 					case Food.FoodType.CORN: corn++; break;
+					case Food.FoodType.COW: cows++; break;
 				}
 			}
 			GameManager.instance.levelStats = new LevelStats
@@ -155,12 +159,20 @@ public class Player : MonoBehaviour {
 				pumpkins = pumpkins,
 				pigs = pigs,
 				corn = corn,
+				cows = cows,
+				cabbages = cabbage,
+				potatoes = potatoes,
 				turkeys = turkeys
 			};
 
-			Debug.Log(GameManager.instance.levelStats);
+			Debug.Log(JsonUtility.ToJson( GameManager.instance.levelStats));
 
 		}
+	}
+
+	void Pickup() {
+
+		CountFoods();
 	}
 
 	void DropItems() {
@@ -176,5 +188,6 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
+		CountFoods();
 	}
 }
