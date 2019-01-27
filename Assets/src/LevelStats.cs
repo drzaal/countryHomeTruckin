@@ -13,10 +13,8 @@ public struct LevelStats
     public int cabbages;
 
     public int toSumPoints() {
-        Debug.Log(JsonUtility.ToJson(this));
         int sum = pigs + chickens + corn + cows + pumpkins + turkeys + cabbages + potatoes;
 
-        Debug.Log(sum);
         return sum; 
     }
     public float toStdPoints() {
