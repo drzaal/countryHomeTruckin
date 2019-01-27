@@ -35,59 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
---- !u!54 &54805725676171326
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1366496184485868}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 0
---- !u!114 &114622984176480150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1366496184485868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aac4852f3e7f5c34687571833b3f0dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114811960142985074
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1366496184485868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0caf2d5f10b836c4f8aa694f6a9d4f79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 2
-  fallSpeed: 10
-  foodType: 0
---- !u!136 &136288944464113324
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1366496184485868}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 2.275
-  m_Height: 4.22
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.0000076293945, z: -0.000008583069}
 --- !u!212 &212577699698911634
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -167,8 +114,20 @@ MonoBehaviour:
   force: 2
   fallSpeed: 10
   foodType: 1
---- !u!135 &135418391252935514
-SphereCollider:
+--- !u!114 &114622984176480150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366496184485868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac4852f3e7f5c34687571833b3f0dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &136288944464113324
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -177,6 +136,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 2.275
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Height: 4.22
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.0000076293945, z: -0.000008583069}
