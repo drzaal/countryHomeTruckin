@@ -3928,6 +3928,17 @@ Prefab:
       propertyPath: m_Name
       value: Cow (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 136566323656884938, guid: 3edd6b9af147dd74fbfd10f2095c4f43,
+        type: 2}
+      propertyPath: m_Center.x
+      value: -4.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 212853765472639268, guid: 3edd6b9af147dd74fbfd10f2095c4f43,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: c74e2852bda1c054a88e980aa9db7bfe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3edd6b9af147dd74fbfd10f2095c4f43, type: 2}
   m_IsPrefabAsset: 0
@@ -12462,11 +12473,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4951014407731600, guid: b69e898292662da4caa0272a9b4f733d,
     type: 2}
   m_PrefabInternal: {fileID: 291055293}
+--- !u!1 &291339136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1418766289454870, guid: 3edd6b9af147dd74fbfd10f2095c4f43,
+    type: 2}
+  m_PrefabInternal: {fileID: 86220898}
 --- !u!4 &291339137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4917383019557540, guid: 3edd6b9af147dd74fbfd10f2095c4f43,
     type: 2}
   m_PrefabInternal: {fileID: 86220898}
+--- !u!95 &291339143
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 291339136}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a17e67b4460e444b94cc049a07498e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &291601224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4951014407731600, guid: b69e898292662da4caa0272a9b4f733d,
