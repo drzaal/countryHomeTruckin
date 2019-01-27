@@ -1,9 +1,10 @@
-*.csproj
+/*.csproj
 .DS_Store
-Temp
-obj
+Temp/
+obj/
+ExportedObj/
 .vscode
-Library
+Library/
 Logs
-*.sln
+/*.sln
 UIElementsSchema

@@ -7,9 +7,9 @@ public class Food : MonoBehaviour {
 	[SerializeField] float force;
 	[SerializeField] float fallSpeed;
 
-	enum FoodType { PIG, PUMPKIN }
+	public enum FoodType { PIG, PUMPKIN, CORN, COW, TURKEY }
 
-	[SerializeField] FoodType foodType;
+	[SerializeField] public FoodType foodType;
 
 	private Rigidbody rb;
 	private BoxCollider bc;
@@ -32,7 +32,7 @@ public class Food : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isContained) {
-			
+
 		}
 		else {
 			if (isFalling && !isContained) {
@@ -49,7 +49,6 @@ public class Food : MonoBehaviour {
 
 	public void Pickup() {
 		if (!isPicked && !isFalling && !isContained) {
-			transform.localScale = new Vector3(.5f, .5f, .5f);
 			Physics.IgnoreCollision(GameManager.instance.player.GetComponent<BoxCollider>(), sc);
 			transform.position = GameManager.instance.bed.position;
 			isContained = true;

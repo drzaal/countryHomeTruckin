@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] float gravity = 100f;
     [SerializeField] float maxFallSpeed = 25;
 
-    [SerializeField] LevelStats levelStats;
+    [SerializeField] public LevelStats levelStats;
 
 	void Awake() {
 		if (instance == null) {

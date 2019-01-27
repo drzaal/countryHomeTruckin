@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Player : MonoBehaviour {
 
@@ -99,8 +100,10 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		Transform item = other.transform;
 		if (item.CompareTag("Food")) {
+			item.transform.localScale = new Vector3(.5f, .5f, .5f);
 			item.parent = possessions;
 			item.GetComponent<Food>().Pickup();
+			Pickup();
 		}
 
 		if (other.transform.CompareTag("Finish") && GameManager.instance != null)
@@ -109,16 +112,51 @@ public class Player : MonoBehaviour {
 		}
     }
 
-	void Pickup(Transform item) {
-		
+	void Pickup() {
+
+		if (possessions.childCount > 0) {
+			Food[] foods = possessions.GetComponentsInChildren<Food>();
+			if (foods == null) throw new System.Exception();
+
+			int pumpkins = 0;
+			int pigs = 0;
+			int cows = 0;
+			int turkeys = 0;
+			int chickens = 0;
+			int corn = 0;
+
+			foreach (Food food in foods)
+			{
+				switch(food.foodType)
+				{
+					case Food.FoodType.PUMPKIN: pumpkins++; break;
+					case Food.FoodType.PIG: pigs++; break;
+					case Food.FoodType.TURKEY: turkeys++; break;
+					//case Food.FoodType.CHICKEN: chickens++; break;
+					case Food.FoodType.CORN: corn++; break;
+				}
+			}
+			GameManager.instance.levelStats = new LevelStats
+			{
+				pumpkins = pumpkins,
+				pigs = pigs,
+				corn = corn,
+				turkeys = turkeys
+			};
+
+			Debug.Log(GameManager.instance.levelStats);
+
+		}
 	}
 
 	void DropItems() {
 		if (possessions.childCount > 0) {
 			int toDrop = 2;
 			while (toDrop > 0) {
+				Debug.Log("DroppingItem");
 				Transform child = possessions.GetChild(0);
 				child.parent = null;
+				child.transform.localScale = Vector3.one;
 				toDrop -= 1;
 				if (toDrop > possessions.childCount) {
 					toDrop = 0;

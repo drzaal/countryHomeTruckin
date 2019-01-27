@@ -15,6 +15,8 @@ public class GameHud : MonoBehaviour {
 
 
     [SerializeField] Text travelTimeDisplayText;
+    [SerializeField] Text foodDisplayValue;
+    [SerializeField] Text nutritionDisplayValue;
 
     void Update()
     {
@@ -27,6 +29,15 @@ public class GameHud : MonoBehaviour {
         {
             travelTimeDisplayText.text = floatToTime();
         }
+        if (nutritionDisplayValue != null)
+        {
+            nutritionDisplayValue.text = GameManager.instance.levelStats.toStdPoints().ToString();
+        }
+        if (foodDisplayValue != null)
+        {
+            foodDisplayValue.text = GameManager.instance.levelStats.toSumPoints().ToString();
+        }
+        
     }
 
     public string floatToTime()
