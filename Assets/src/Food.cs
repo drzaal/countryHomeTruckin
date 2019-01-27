@@ -11,6 +11,7 @@ public class Food : MonoBehaviour {
 
 	[SerializeField] FoodType foodType;
 
+	private Animator animator;
 	private Rigidbody rb;
 	private CapsuleCollider cc;
 	private Vector3 ogScale;
@@ -18,10 +19,21 @@ public class Food : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cc = GetComponent<CapsuleCollider>();
 		ogScale = transform.localScale;
 		isContained = false;
+
+		if (animator) {
+			StartCoroutine(StartAnimation());
+		}
+	}
+
+	IEnumerator StartAnimation() {
+		animator.enabled = false;
+		yield return new WaitForSeconds(Random.Range(0f, 1f));
+		animator.enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -35,9 +47,9 @@ public class Food : MonoBehaviour {
 			if (foodType == FoodType.COW) {
 				scale = new Vector3(1, 1, 1);
 			} else if (foodType == FoodType.PIG) {
-
+				scale = new Vector3(.65f, .65f, .65f);
 			} else if (foodType == FoodType.TURKEY) {
-
+				scale = new Vector3(.4f, .4f, .4f);
 			}
 			transform.localScale = scale; // make smaller
 			gameObject.layer = 9; // change layer for collisions

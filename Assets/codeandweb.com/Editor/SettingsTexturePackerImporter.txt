@@ -3,10 +3,16 @@ importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
 - Assets/Sprites/COWSPRITE2.tpsheet
+- Assets/Sprites/pig3.tpsheet
+- Assets/Sprites/TURKEYSPRITE.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Sprites/COWSPRITE2.png
+- Assets/Sprites/pig3.png
+- Assets/Sprites/TURKEYSPRITE.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
 - 
 enableDebugOutput: 0
