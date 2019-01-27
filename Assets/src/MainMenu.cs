@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
@@ -9,6 +10,8 @@ public class MainMenu : MonoBehaviour {
 	public bool isCreditsLoading = false;
 	private bool isStarting = false;
 	private bool isQuitting = false;
+
+	public Image creditsPanel;
 
 	// Use this for initialization
 	void Start () {
@@ -31,8 +34,11 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void showCredits() {
-		if (isCreditsLoading) return;
+		//if (isCreditsLoading) return;
 		isShowCredits = !isShowCredits;
 		isCreditsLoading = true;
+
+		creditsPanel.enabled = isShowCredits;
+		isCreditsLoading = false;
 	}
 }

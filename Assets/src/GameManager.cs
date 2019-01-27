@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
-        timeToDinner += Time.deltaTime;
+        if (!haveWon) timeToDinner += Time.deltaTime;
     }
 
     public void winLevel()

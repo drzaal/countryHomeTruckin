@@ -31,7 +31,15 @@ public class Food : MonoBehaviour {
 
 	public void Pickup() {
 		if (!isContained) {
-			transform.localScale = new Vector3(.5f, .5f, .5f); // make smaller
+			Vector3 scale = new Vector3(.5f, .5f, .5f);
+			if (foodType == FoodType.COW) {
+				scale = new Vector3(1, 1, 1);
+			} else if (foodType == FoodType.PIG) {
+
+			} else if (foodType == FoodType.TURKEY) {
+
+			}
+			transform.localScale = scale; // make smaller
 			gameObject.layer = 9; // change layer for collisions
 			transform.position = GameManager.instance.bed.position; // put in cage
 			isContained = true;
