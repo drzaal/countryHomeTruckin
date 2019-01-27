@@ -15,10 +15,21 @@ public class GameManager : MonoBehaviour {
     [SerializeField] float maxFallSpeed = 25;
 
 
+    // MawMaw's happiness
     [SerializeField] public float timeToDinner;
     [SerializeField] public float unhappyTime;
     [SerializeField] public float angryTime;
     [SerializeField] public float divorceTime;
+
+    // Kid's happiness
+    [SerializeField] public float mealNutrition;
+    [SerializeField] public float roundedMeal;
+    [SerializeField] public float wellRoundedMeal;
+
+    // Kid's happiness
+    [SerializeField] public float foodSum;
+    [SerializeField] public float feastMinimum;
+    [SerializeField] public float mealMinimum;
 
     [SerializeField] float truckCondition;
     [SerializeField] int mealValue;

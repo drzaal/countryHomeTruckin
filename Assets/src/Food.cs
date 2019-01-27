@@ -55,6 +55,9 @@ public class Food : MonoBehaviour {
 
 	IEnumerator Enlargen() {
 		transform.localScale = ogScale; // make bigger
+		isContained = false;
+		transform.parent = null;
+		gameObject.layer = 0; // change layer for collisions
 		yield return new WaitForSeconds(.025f);
 		cc.isTrigger = true;
 		rb.isKinematic = true;

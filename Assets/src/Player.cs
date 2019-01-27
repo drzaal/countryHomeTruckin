@@ -63,7 +63,7 @@ public class Player : MonoBehaviour {
 			float rotation = (destination - wheels.GetChild(0).rotation.x) * evaluate + wheels.GetChild(0).rotation.x;
 			print(rotation);
 			// wheels.GetChild(0).rotation = rotation;
-			wheels.GetChild(0).Rotate(rotation, 0, 0);
+			//wheels.GetChild(0).Rotate(rotation, 0, 0);
 			yield return new WaitForEndOfFrame();
 		}
 	}
@@ -129,7 +129,11 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (!GameManager.instance.haveWon)
+		if (GameManager.instance.haveWon)
+		{
+			zmove = 0;
+		}
+		else
 		{
 			DriveTruck();
 		}
@@ -152,7 +156,8 @@ public class Player : MonoBehaviour {
 		}
 
 		foreach (Transform wheel in wheels) {
-			wheel.Rotate(-zmove * (Mathf.Abs(velocity.x) + Mathf.Abs(velocity.z)) * 2 * Time.deltaTime, 0, 0);
+			// TRANSFORM ISSUE WITH THE MODEL
+			// wheel.Rotate(-zmove * (Mathf.Abs(velocity.x) + Mathf.Abs(velocity.z)) * 2 * Time.deltaTime, 0, 0);
 		}
 
 		/* else {
@@ -223,11 +228,18 @@ public class Player : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		Transform item = other.transform;
+
 		if (item.CompareTag("Food")) {
 			item.transform.localScale = new Vector3(.5f, .5f, .5f);
 			item.parent = possessions;
 			item.GetComponent<Food>().Pickup();
 			Pickup();
+
+			AudioSource sfx;
+			if ((sfx = item.GetComponent<AudioSource>()) != null)
+			{
+				sfx.Play();
+			}
 		}
 
 		if (other.transform.CompareTag("HomeZone") && GameManager.instance != null)
@@ -238,7 +250,7 @@ public class Player : MonoBehaviour {
 
 	void CountFoods()
 	{
-if (possessions.childCount > 0) {
+		if (possessions.childCount > 0) {
 			Food[] foods = possessions.GetComponentsInChildren<Food>();
 			if (foods == null) throw new System.Exception();
 
@@ -274,8 +286,8 @@ if (possessions.childCount > 0) {
 				potatoes = potatoes,
 				turkeys = turkeys
 			};
-
-			Debug.Log(JsonUtility.ToJson( GameManager.instance.levelStats));
+			GameManager.instance.mealNutrition = GameManager.instance.levelStats.toCubeRtSum();
+			GameManager.instance.foodSum = GameManager.instance.levelStats.toSumPoints();
 
 		}
 	}

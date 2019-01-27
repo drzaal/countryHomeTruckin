@@ -49,7 +49,7 @@ public class WinHud : MonoBehaviour {
             }
             if (nutritionDisplayValue != null)
             {
-                nutritionDisplayValue.text = GameManager.instance.levelStats.toCubeRtSum().ToString();
+                nutritionDisplayValue.text = GameManager.instance.mealNutrition.ToString();
             }
             if (foodDisplayValue != null)
             {
