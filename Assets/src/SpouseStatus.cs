@@ -8,10 +8,10 @@ public class SpouseStatus : MonoBehaviour {
     [SerializeField] enum Happiness { HAPPY, MILD, ANGRY, FURIOUS }
     Happiness happiness;
 
-    [SerializeField] Sprite happyImage;
-    [SerializeField] Sprite mildImage;
-    [SerializeField] Sprite angryImage;
-    [SerializeField] Sprite furyImage;
+    [SerializeField] UnityEngine.Sprite happyImage;
+    [SerializeField] UnityEngine.Sprite mildImage;
+    [SerializeField] UnityEngine.Sprite angryImage;
+    [SerializeField] UnityEngine.Sprite furyImage;
 
     [SerializeField] Image iconImage;
     [SerializeField] GameHud gameHud;
