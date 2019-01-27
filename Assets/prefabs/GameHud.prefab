@@ -384,12 +384,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bab55c53f4da4b899df6f16b14c26f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  happyImage: {fileID: 21300000, guid: 62ceaa4b0f70f2942aeffad328c7d763, type: 3}
-  mildImage: {fileID: 21300000, guid: 62ceaa4b0f70f2942aeffad328c7d763, type: 3}
-  angryImage: {fileID: 21300000, guid: 62ceaa4b0f70f2942aeffad328c7d763, type: 3}
-  furyImage: {fileID: 21300000, guid: a93afe9319e93cc4bb86e8b56d4c7d91, type: 3}
+  happyImage: {fileID: 21300000, guid: c923bbada9c24476597f618df9a7db6a, type: 3}
+  mildImage: {fileID: 21300000, guid: 2d1931379ee6447fd92b33c770fc132e, type: 3}
+  angryImage: {fileID: 21300000, guid: b235ea1ad811540fc98f4fe31a714a06, type: 3}
+  furyImage: {fileID: 21300000, guid: b235ea1ad811540fc98f4fe31a714a06, type: 3}
   iconImage: {fileID: 1097753794162537390}
-  gameHud: {fileID: 0}
+  gameHud: {fileID: 8646245753001271815}
 --- !u!1 &2059681064074962416
 GameObject:
   m_ObjectHideFlags: 0
