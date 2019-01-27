@@ -62,7 +62,6 @@ public class Player : MonoBehaviour {
 
 			evaluate = curve.Evaluate(timeDelta);
 			float rotation = (destination - wheels.GetChild(0).rotation.x) * evaluate + wheels.GetChild(0).rotation.x;
-			print(rotation);
 			// wheels.GetChild(0).rotation = rotation;
 			//wheels.GetChild(0).Rotate(rotation, 0, 0);
 			yield return new WaitForEndOfFrame();

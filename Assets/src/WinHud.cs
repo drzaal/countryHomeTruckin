@@ -65,7 +65,7 @@ public class WinHud : MonoBehaviour {
             }
             if (nutritionDisplayValue != null)
             {
-                nutritionDisplayValue.text = GameManager.instance.mealNutrition + " Variety";
+                nutritionDisplayValue.text = GameManager.instance.mealNutrition.ToString("F2") + " Variety";
             }
             if (foodDisplayValue != null)
             {
