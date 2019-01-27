@@ -299,7 +299,7 @@ public class Player : MonoBehaviour {
 
 	void DropItems() {
 		if (possessions.childCount > 0) {
-			int toDrop = (int) Mathf.Max(1, Mathf.Floor(possessions.childCount / 2));
+			int toDrop = (int) Mathf.Min(6, Mathf.Max(1, Mathf.Floor(possessions.childCount / 3)));
 			while (toDrop > 0) {
 				Transform child = possessions.GetChild(Random.Range(0, possessions.childCount));
 				child.parent = GameManager.instance.food;
