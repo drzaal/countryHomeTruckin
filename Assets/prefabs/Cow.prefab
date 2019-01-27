@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 212853765472639268}
   - component: {fileID: 54423460884462298}
   - component: {fileID: 114771126343228048}
-  - component: {fileID: 135347296795950586}
+  - component: {fileID: 114932602101289164}
+  - component: {fileID: 136566323656884938}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Food
@@ -36,9 +37,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418766289454870}
-  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
-  m_LocalPosition: {x: -38.6, y: 2.21, z: 30.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.2164396, y: -0, z: -0, w: 0.97629607}
+  m_LocalPosition: {x: 48.90787, y: 151.5, z: -78.282234}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,8 +73,19 @@ MonoBehaviour:
   force: 2
   fallSpeed: 10
   foodType: 0
---- !u!135 &135347296795950586
-SphereCollider:
+--- !u!114 &114932602101289164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418766289454870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac4852f3e7f5c34687571833b3f0dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &136566323656884938
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -81,9 +93,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.275
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 3.665
+  m_Height: 6.5900016
+  m_Direction: 1
+  m_Center: {x: 0.0000009536743, y: 0.0000026226044, z: 0.000009536743}
 --- !u!212 &212853765472639268
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -118,7 +131,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 62ceaa4b0f70f2942aeffad328c7d763, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

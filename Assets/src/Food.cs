@@ -12,14 +12,14 @@ public class Food : MonoBehaviour {
 	[SerializeField] public FoodType foodType;
 
 	private Rigidbody rb;
-	private SphereCollider sc;
+	private CapsuleCollider cc;
 	private Vector3 ogScale;
 	private bool isContained;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-		sc = GetComponent<SphereCollider>();
+		cc = GetComponent<CapsuleCollider>();
 		ogScale = transform.localScale;
 		isContained = false;
 	}
@@ -35,7 +35,7 @@ public class Food : MonoBehaviour {
 			gameObject.layer = 9; // change layer for collisions
 			transform.position = GameManager.instance.bed.position; // put in cage
 			isContained = true;
-			sc.isTrigger = false;
+			cc.isTrigger = false;
 			rb.isKinematic = false;
 		}
 	}
@@ -49,13 +49,14 @@ public class Food : MonoBehaviour {
 	void OnCollisionEnter(Collision other) {
 		Transform item = other.transform;
 		if (item.CompareTag("Ground")) {
-			LandOnGround();
+			StartCoroutine(Enlargen());
 		}
 	}
 
-	public void LandOnGround() {
-		sc.isTrigger = true;
-		rb.isKinematic = true;
+	IEnumerator Enlargen() {
 		transform.localScale = ogScale; // make bigger
+		yield return new WaitForSeconds(.025f);
+		cc.isTrigger = true;
+		rb.isKinematic = true;
 	}
 }

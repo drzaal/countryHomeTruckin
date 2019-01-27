@@ -20,13 +20,17 @@ public class Player : MonoBehaviour {
 
 	// [SerializeField] Transform bed;
 	[SerializeField] Transform possessions;
-
+	[SerializeField] Transform wheels;
+	
 	private Rigidbody rb;
 	// private Vector3 velocity;
 	// private float isAccelerating;
 	// private float isReversing;
 	private float crashTime;
 	private bool destruction;
+
+	private float xmove;
+	private float zmove;
 
 	// Use this for initialization
 	void Start () {
@@ -49,15 +53,33 @@ public class Player : MonoBehaviour {
 
 	void DriveTruck()
 	{
-		float xmove = Input.GetAxisRaw("Horizontal");
-		float zmove = Input.GetAxisRaw("Vertical");
+		xmove = Input.GetAxisRaw("Horizontal");
+		zmove = Input.GetAxisRaw("Vertical");
+
+		// handle rotation (y axis)
+		if (Mathf.Abs(rb.velocity.x) > 0.001f && Mathf.Abs(rb.velocity.z) > 0.001f && xmove != 0) {
+			transform.Rotate(0, xmove * turnSpeed * Time.deltaTime, 0);
+		}
+
+		/* else {
+			// Decelerate();
+			// velocity = new Vector3(velocity.x, velocity.y, zmove * Time.deltaTime);
+			// transform.position -= transform.forward * reverseSpeed;
+			// transform.position = new Vector3(transform.position.x, transform.position.y, zmove * decelerateSpeed * Time.deltaTime);
+		} */
+
+		// velocity = new Vector3(velocity.x, velocity.y, Mathf.Max(0, velocity.z));
+		// transform.position = new Vector3(transform.position.x + velocity.x, transform.position.y, transform.position.z + velocity.z);
+	}
+
+	void FixedUpdate() {
 
 		// handle forward and backward (z axis) movement
 		if (zmove != 0) {
 			// print(rb.velocity);
 			if (zmove > 0) {
 				// Accelerate(zmove);
-				rb.velocity += transform.forward * accelerateSpeed;
+				rb.velocity += transform.forward * accelerateSpeed ;
 				// transform.position += transform.forward * accelerateSpeed;
 				// velocity = new Vector3(velocity.x, velocity.y, zmove * accelerateSpeed * Time.deltaTime);
 				// transform.position = new Vector3(transform.position.x, transform.position.y, zmove * accelerateSpeed * Time.deltaTime);
@@ -73,22 +95,7 @@ public class Player : MonoBehaviour {
 			rb.velocity = rb.velocity * 0.975f;
 		}
 
-		// handle rotation (y axis)
-		if (Mathf.Abs(rb.velocity.x) > 0.001f && Mathf.Abs(rb.velocity.z) > 0.001f && xmove != 0) {
-			transform.Rotate(0, xmove * turnSpeed * Time.deltaTime, 0);
-		}
-
 		velocity = rb.velocity;
-
-		/* else {
-			// Decelerate();
-			// velocity = new Vector3(velocity.x, velocity.y, zmove * Time.deltaTime);
-			// transform.position -= transform.forward * reverseSpeed;
-			// transform.position = new Vector3(transform.position.x, transform.position.y, zmove * decelerateSpeed * Time.deltaTime);
-		} */
-
-		// velocity = new Vector3(velocity.x, velocity.y, Mathf.Max(0, velocity.z));
-		// transform.position = new Vector3(transform.position.x + velocity.x, transform.position.y, transform.position.z + velocity.z);
 	}
 
 	void LateUpdate() {
