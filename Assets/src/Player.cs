@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
 
 	// [SerializeField] AnimationCurve accelerationCurve;
 	// [SerializeField] AnimationCurve reverseCurve;
+	[SerializeField] AnimationCurve curve;
 
 	// [SerializeField] Transform bed;
 	[SerializeField] Transform possessions;
@@ -41,6 +42,89 @@ public class Player : MonoBehaviour {
 		crashTime = Time.time;
 		destruction = false;
 	}
+
+	IEnumerator TurnWheels(float direction) {
+		float origin = wheels.GetChild(0).rotation.x;
+		float destination = origin + 20 * direction;
+		float time = .5f;
+		float startTime = Time.time;
+		float timeDelta = 0;
+		float evaluate;
+
+		while (timeDelta < 1) {
+			timeDelta = Time.time - startTime;
+			if (timeDelta < time) {
+				timeDelta = timeDelta / time;
+			} else {
+				timeDelta = 1;
+			}
+
+			evaluate = curve.Evaluate(timeDelta);
+			float rotation = (destination - wheels.GetChild(0).rotation.x) * evaluate + wheels.GetChild(0).rotation.x;
+			print(rotation);
+			// wheels.GetChild(0).rotation = rotation;
+			wheels.GetChild(0).Rotate(rotation, 0, 0);
+			yield return new WaitForEndOfFrame();
+		}
+	}
+
+	/* IEnumerator UnturnWheels() {
+		float origin = wheels.GetChild(0).rotation.x;
+		float destination = origin + 20 * direction;
+		float time = .5f;
+		float startTime = Time.time;
+		float timeDelta = 0;
+		float evaluate;
+
+		while (timeDelta < 1) {
+			timeDelta = Time.time - startTime;
+			if (timeDelta < time) {
+				timeDelta = timeDelta / time;
+			} else {
+				timeDelta = 1;
+			}
+
+			evaluate = curve.Evaluate(timeDelta);
+			float rotation = (destination - wheels.GetChild(0).rotation.x) * evaluate + wheels.GetChild(0).rotation.x;
+			// wheels.GetChild(0).rotation = rotation;
+			wheels.GetChild(0).Rotate(rotation, 0, 0);
+			yield return new WaitForEndOfFrame();
+		}
+	} */
+
+	/* private IEnumerator Tween(GameObject obj, float yCoord, AnimationCurve curve, float time) {
+		Item item = obj.GetComponent<Item>();
+		Vector3 move;
+		float moveX;
+		float moveY;
+		float startTime = Time.time;
+		float timeDelta = 0;
+		float evaluate;
+
+		while (timeDelta < 1) {
+			float top = bc.bounds.max.y;
+			Vector3 reallocation = new Vector3(transform.position.x, top + yCoord, obj.transform.position.z);
+			timeDelta = Time.time - startTime;
+			if (item.beingHeld && timeDelta < time) {
+				timeDelta = timeDelta / time;
+			} else {
+				timeDelta = 1;
+			}
+
+			evaluate = curve.Evaluate(timeDelta);
+			moveX = (reallocation.x - obj.transform.position.x) * evaluate + obj.transform.position.x;
+			moveY = (reallocation.y - obj.transform.position.y) * evaluate + obj.transform.position.y;
+			move = new Vector3(moveX, moveY, reallocation.z);
+			obj.transform.position = move;
+
+			yield return new WaitForEndOfFrame();
+		}
+
+		/* obj.GetComponent<SpriteRenderer>().sortingLayerName = "Set Blocks";
+		spawnParticles(location);
+		StartCoroutine(Camera.main.GetComponent<Shake>().ShakeCamera());
+        this.audioSource.PlayOneShot(sndBoom, 0.9f);
+	} */
 	
 	// Update is called once per frame
 	void Update () {
@@ -59,6 +143,16 @@ public class Player : MonoBehaviour {
 		// handle rotation (y axis)
 		if (Mathf.Abs(rb.velocity.x) > 0.001f && Mathf.Abs(rb.velocity.z) > 0.001f && xmove != 0) {
 			transform.Rotate(0, xmove * turnSpeed * Time.deltaTime, 0);
+		}
+
+		if (xmove != 0) {
+			StartCoroutine(TurnWheels(xmove));
+		} else {
+			// StartCoroutine(UnturnWheels());
+		}
+
+		foreach (Transform wheel in wheels) {
+			wheel.Rotate(-zmove * (Mathf.Abs(velocity.x) + Mathf.Abs(velocity.z)) * 2 * Time.deltaTime, 0, 0);
 		}
 
 		/* else {
@@ -193,7 +287,7 @@ if (possessions.childCount > 0) {
 
 	void DropItems() {
 		if (possessions.childCount > 0) {
-			int toDrop = (int) Mathf.Max(1, Mathf.Floor(possessions.childCount / 3));
+			int toDrop = (int) Mathf.Max(1, Mathf.Floor(possessions.childCount / 2));
 			while (toDrop > 0) {
 				Transform child = possessions.GetChild(Random.Range(0, possessions.childCount));
 				child.parent = GameManager.instance.food;
