@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212369102724849154}
   - component: {fileID: 54895947252199052}
   - component: {fileID: 65802442785167374}
+  - component: {fileID: 114613196462342172}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Obstacle
@@ -69,6 +70,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.93, y: 4.64, z: 0.20000029}
   m_Center: {x: -0.0000038146973, y: 0.0000009536743, z: 0}
+--- !u!114 &114613196462342172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062141609587012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac4852f3e7f5c34687571833b3f0dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212369102724849154
 SpriteRenderer:
   m_ObjectHideFlags: 1

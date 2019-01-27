@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 212577699698911634}
   - component: {fileID: 54805725676171326}
   - component: {fileID: 114811960142985074}
-  - component: {fileID: 135418391252935514}
+  - component: {fileID: 114622984176480150}
+  - component: {fileID: 136288944464113324}
   m_Layer: 0
   m_Name: Pumpkin
   m_TagString: Food
@@ -36,8 +37,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1366496184485868}
-  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
-  m_LocalPosition: {x: 0, y: 2.21, z: 30.1}
+  m_LocalRotation: {x: 0.2164396, y: -0, z: -0, w: 0.97629607}
+  m_LocalPosition: {x: 71.60787, y: 149.4, z: -57.022232}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,6 +59,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 48
   m_CollisionDetection: 0
+--- !u!114 &114622984176480150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366496184485868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac4852f3e7f5c34687571833b3f0dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114811960142985074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,8 +84,8 @@ MonoBehaviour:
   force: 2
   fallSpeed: 10
   foodType: 0
---- !u!135 &135418391252935514
-SphereCollider:
+--- !u!136 &136288944464113324
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -81,9 +93,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 2.275
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Height: 4.22
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.0000076293945, z: -0.000008583069}
 --- !u!212 &212577699698911634
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -118,7 +131,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: a93afe9319e93cc4bb86e8b56d4c7d91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212937139372071810}
   - component: {fileID: 54830230567036954}
   - component: {fileID: 65036957858547764}
+  - component: {fileID: 114736202724357768}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Obstacle
@@ -69,6 +70,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.6, y: 9.43, z: 0.20000057}
   m_Center: {x: -0.4, y: 0, z: 0}
+--- !u!114 &114736202724357768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1109579852731284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac4852f3e7f5c34687571833b3f0dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212937139372071810
 SpriteRenderer:
   m_ObjectHideFlags: 1

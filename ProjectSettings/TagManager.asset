@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - HomeZone
   - Ground
+  - Foliage
   layers:
   - Default
   - TransparentFX
