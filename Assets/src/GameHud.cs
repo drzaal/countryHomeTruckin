@@ -69,7 +69,7 @@ public class GameHud : MonoBehaviour {
                 b = nutritionDisplaySprite.color.b,
                 a = animationProgress
             };
-            nutritionDisplayValue.text = GameManager.instance.levelStats.toStdPoints().ToString();
+            nutritionDisplayValue.text = GameManager.instance.levelStats.toCubeRtSum().ToString();
         }
         if (foodDisplayValue != null)
         {

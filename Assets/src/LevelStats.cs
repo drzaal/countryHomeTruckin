@@ -17,21 +17,19 @@ public struct LevelStats
 
         return sum; 
     }
-    public float toStdPoints() {
-        float std = stdDev(new float[] { pigs, chickens, corn, cows, pumpkins, turkeys, cabbages, potatoes});
-        return 1 - std;
+    public float toCubeRtSum() {
+        float std = rt3Sum(new float[] { pigs, chickens, corn, cows, pumpkins, turkeys, cabbages, potatoes});
+        return std;
     }
 
-    public float stdDev(float[] input) {
+    public float rt3Sum(float[] input) {
         int n = input.Length;
         float sum = 0f;
-        float avg = 0f;
-        float std = 0f;
         if (n == 0) return 0;
-        for (int i=0;i<n;i++) sum += input[i];
-        avg = sum/ n;
-        for (int i=0;i<n;i++) std += Mathf.Pow(avg - input[i], 2);
+        for (int i=0;i<n;i++) {
+            sum += (input[i] > 0f ? Mathf.Pow(input[i], 0.333f) : 0f);
+        }
 
-        return std/n;
+        return sum;
     }
 }
