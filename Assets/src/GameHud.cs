@@ -18,7 +18,7 @@ public class GameHud : MonoBehaviour {
 
     void Update()
     {
-        timeToDinner += Time.deltaTime * 5f;
+        timeToDinner += Time.deltaTime;
     }
 
     void OnGUI()

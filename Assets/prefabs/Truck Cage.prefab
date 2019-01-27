@@ -9,16 +9,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1376557676671276, guid: b6668b0b556bb8d48ac6cb8161fd5f1d, type: 3}
       propertyPath: m_Name
-      value: Truck
+      value: Truck Cage
       objectReference: {fileID: 0}
+    - target: {fileID: 1153505687163544, guid: b6668b0b556bb8d48ac6cb8161fd5f1d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 33004041234678788, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 5b655c094935149e7bba1171704b2222, type: 3}
     - target: {fileID: 114669650768147574, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
         type: 3}
       propertyPath: bed
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114669650768147574, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
-        type: 3}
-      propertyPath: possessions
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4534579476927480, guid: b6668b0b556bb8d48ac6cb8161fd5f1d, type: 3}
@@ -129,15 +133,40 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.060000136
       objectReference: {fileID: 0}
-    - target: {fileID: 3972617927444704166, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
+    - target: {fileID: 3972617927444704167, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
         type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
+      propertyPath: m_LocalPosition.y
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972617927444704167, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972617927444704167, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972617927444704167, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972617927444704167, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3972617927444704166, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
         type: 3}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972617927444704166, guid: b6668b0b556bb8d48ac6cb8161fd5f1d,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6668b0b556bb8d48ac6cb8161fd5f1d, type: 3}

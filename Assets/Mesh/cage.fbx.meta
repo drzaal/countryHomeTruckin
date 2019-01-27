@@ -7,18 +7,28 @@ ModelImporter:
     100002: Camera
     100004: Cube
     100006: Lamp
+    100008: Cagebottom
+    100010: CageSide
     400000: //RootNode
     400002: Camera
     400004: Cube
     400006: Lamp
+    400008: Cagebottom
+    400010: CageSide
     2000000: Camera
     2100000: CageMaterial
     2300000: Cube
     2300002: //RootNode
+    2300004: Cagebottom
+    2300006: CageSide
     3300000: Cube
     3300002: //RootNode
+    3300004: Cagebottom
+    3300006: CageSide
     4300000: Cube
     4300002: Cage
+    4300004: CageSide
+    4300006: Cagebottom
     10800000: Lamp
   externalObjects: {}
   materials:

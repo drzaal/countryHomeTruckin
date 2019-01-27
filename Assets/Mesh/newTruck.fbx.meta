@@ -1,30 +1,37 @@
 fileFormatVersion: 2
-guid: 36e6d9f69553e2f40aa97e5a68aca141
+guid: 5b655c094935149e7bba1171704b2222
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cagebottom
-    100004: CageSide
+    100002: polySurface11
+    100004: polySurface12
+    100006: polySurface13
+    100008: polySurface14
+    100010: polySurface42
     400000: //RootNode
-    400002: Cagebottom
-    400004: CageSide
-    2100000: CageMaterial
-    2100002: CageMaterial__uv
-    2100004: CageMaterial__crate_png
-    2300000: //RootNode
-    2300002: Cagebottom
-    2300004: CageSide
-    3300000: //RootNode
-    3300002: Cagebottom
-    3300004: CageSide
-    4300000: Cube
-    4300002: Cage
-    4300004: CageSide
-    4300006: Cagebottom
-    7400000: Default Take
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+    400002: polySurface11
+    400004: polySurface12
+    400006: polySurface13
+    400008: polySurface14
+    400010: polySurface42
+    2100000: lambert1
+    2100002: CarMaterial
+    2300000: polySurface11
+    2300002: polySurface12
+    2300004: polySurface13
+    2300006: polySurface14
+    2300008: polySurface42
+    3300000: polySurface11
+    3300002: polySurface12
+    3300004: polySurface13
+    3300006: polySurface14
+    3300008: polySurface42
+    4300000: polySurface42
+    4300002: polySurface14
+    4300004: polySurface13
+    4300006: polySurface12
+    4300008: polySurface11
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -78,7 +85,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -105,7 +112,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
