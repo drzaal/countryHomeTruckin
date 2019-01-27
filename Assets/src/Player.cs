@@ -40,6 +40,15 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (!GameManager.instance.haveWon)
+		{
+			DriveTruck();
+		}
+	}
+
+	void DriveTruck()
+	{
 		float xmove = Input.GetAxisRaw("Horizontal");
 		float zmove = Input.GetAxisRaw("Vertical");
 

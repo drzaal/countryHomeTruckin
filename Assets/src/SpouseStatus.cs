@@ -24,9 +24,9 @@ public class SpouseStatus : MonoBehaviour {
     Happiness getHappiness()
     {
         if (gameHud == null) return Happiness.FURIOUS;
-        if (gameHud.timeToDinner > gameHud.divorceTime) return Happiness.FURIOUS;
-        if (gameHud.timeToDinner > gameHud.angryTime) return Happiness.ANGRY;
-        if (gameHud.timeToDinner > gameHud.unhappyTime) return Happiness.MILD;
+        if (GameManager.instance.timeToDinner > GameManager.instance.divorceTime) return Happiness.FURIOUS;
+        if (GameManager.instance.timeToDinner > GameManager.instance.angryTime) return Happiness.ANGRY;
+        if (GameManager.instance.timeToDinner > GameManager.instance.unhappyTime) return Happiness.MILD;
         return Happiness.HAPPY;
     }
 
