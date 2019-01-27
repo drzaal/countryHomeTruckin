@@ -6,9 +6,6 @@ ExportedObj/
 .vscode
 Library/
 Logs
-<<<<<<< HEAD
 /*.sln
 UIElementsSchema
-=======
 Packages
->>>>>>> ryan-dev-test

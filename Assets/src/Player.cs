@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
 
 	// [SerializeField] Transform bed;
 	[SerializeField] Transform possessions;
+	[SerializeField] ParticleSystem particlePuffer;
 	[SerializeField] Transform wheels;
 	
 	private Rigidbody rb;
@@ -213,6 +214,12 @@ public class Player : MonoBehaviour {
 
 	}
 
+	void PuffAtLocation(Vector3 location)
+	{
+		particlePuffer.transform.position = location;
+		particlePuffer.Play();
+	}
+
 	void OnCollisionEnter(Collision other) {
 		Transform item = other.transform;
 		if (item.CompareTag("Obstacle")) {
@@ -221,6 +228,16 @@ public class Player : MonoBehaviour {
 				if (temp - crashTime > 3) {
 					crashTime = temp;
 					DropItems();
+					if (particlePuffer != null && other.contactCount > 0)
+					{
+						PuffAtLocation(other.contacts[0].point);
+					}
+
+					AudioSource sfx;
+					if ((sfx = item.GetComponent<AudioSource>()) != null)
+					{
+						sfx.Play();
+					}
 				}
 			}
 		}
