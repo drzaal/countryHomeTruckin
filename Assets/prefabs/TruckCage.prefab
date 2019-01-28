@@ -96,7 +96,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367074278799753024}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 16000
   m_Drag: 1
   m_AngularDrag: 100
   m_UseGravity: 1
@@ -111,7 +111,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367074278799753024}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3934a57498c084a78bc2918a830b19e4, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -132,11 +132,11 @@ MonoBehaviour:
   accelerateSpeed: 1.6
   reverseSpeed: 1
   turnSpeed: 1.7
-  linearDrag: 0.12
+  linearDrag: 0.2
   angularDrag: 4
   maxDepenetrationVelocity: 40
   maxSpeed: 40
-  velocity: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: -1.9328054e-38}
   angularVelocity: {x: 0, y: 0, z: 0}
   curve:
     serializedVersion: 2
