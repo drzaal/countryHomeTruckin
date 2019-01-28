@@ -51,8 +51,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9313626, y: 1, z: 0.6540888}
+  m_Center: {x: 0.034318574, y: 0, z: -0.038813815}
 --- !u!1 &367074278799753024
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,17 +129,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e8b55ac2bc7184db211e000d7f6e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerateSpeed: 1.5
+  accelerateSpeed: 1.6
   reverseSpeed: 1
-  turnSpeed: 50
+  turnSpeed: 1.7
+  linearDrag: 0.12
+  angularDrag: 4
+  maxDepenetrationVelocity: 40
+  maxSpeed: 40
   velocity: {x: 0, y: 0, z: 0}
+  angularVelocity: {x: 0, y: 0, z: 0}
   curve:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  possessions: {fileID: 0}
+  possessions: {fileID: 5355879707704571275}
   particlePuffer: {fileID: 0}
   wheels: {fileID: 714167074689885780}
 --- !u!1 &714167074689923680
@@ -837,8 +842,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.73010385}
+  m_Center: {x: 4.380145e-17, y: 0, z: 0.024654942}
 --- !u!1 &3924509456372132173
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,8 +895,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.8778097, y: 1, z: 0.72576225}
+  m_Center: {x: -0.061095394, y: 0, z: -0.10396643}
 --- !u!1 &4438792860860047029
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,8 +948,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9388704, y: 1, z: 0.56881547}
+  m_Center: {x: -0.03056492, y: 0, z: -0.0037999854}
 --- !u!1 &5881918083989705780
 GameObject:
   m_ObjectHideFlags: 0
@@ -5890,11 +5895,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2481043223264592105, guid: 0b93cb8042a1c4c788c330baf6f67662, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b93cb8042a1c4c788c330baf6f67662, type: 3}
 --- !u!4 &1895093725359968707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2481043223264592104, guid: 0b93cb8042a1c4c788c330baf6f67662,
+    type: 3}
+  m_PrefabInstance: {fileID: 4045030819389280555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5355879707704571275 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8246440763911611552, guid: 0b93cb8042a1c4c788c330baf6f67662,
     type: 3}
   m_PrefabInstance: {fileID: 4045030819389280555}
   m_PrefabAsset: {fileID: 0}

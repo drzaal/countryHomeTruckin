@@ -6,6 +6,7 @@ public class Food : MonoBehaviour {
 
 	[SerializeField] float force;
 	[SerializeField] float fallSpeed;
+	[SerializeField] float baseScale;
 
 	public enum FoodType { PIG, PUMPKIN, CORN, COW, TURKEY, CABBAGE, POTATO }
 
@@ -22,7 +23,6 @@ public class Food : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cc = GetComponent<CapsuleCollider>();
-		ogScale = transform.localScale;
 		isContained = false;
 
 		if (animator) {
@@ -43,15 +43,12 @@ public class Food : MonoBehaviour {
 
 	public void Pickup() {
 		if (!isContained) {
-			Vector3 scale = new Vector3(.5f, .5f, .5f);
-			if (foodType == FoodType.COW) {
-				scale = new Vector3(1, 1, 1);
-			} else if (foodType == FoodType.PIG) {
-				scale = new Vector3(.65f, .65f, .65f);
-			} else if (foodType == FoodType.TURKEY) {
-				scale = new Vector3(.4f, .4f, .4f);
-			}
-			transform.localScale = scale; // make smaller
+			Vector3 scale = new Vector3(
+				1f / transform.parent.lossyScale.x,
+				1f / transform.parent.lossyScale.y,
+				1f / transform.parent.lossyScale.z) * baseScale;
+
+			transform.localScale = scale ; // make smaller
 			gameObject.layer = 9; // change layer for collisions
 			transform.position = GameManager.instance.bed.position; // put in cage
 			isContained = true;
@@ -74,9 +71,9 @@ public class Food : MonoBehaviour {
 	}
 
 	IEnumerator Enlargen() {
-		transform.localScale = ogScale; // make bigger
 		isContained = false;
-		transform.parent = null;
+		transform.parent = GameManager.instance.food;
+		transform.localScale = baseScale * Vector3.one; // make bigger
 		gameObject.layer = 0; // change layer for collisions
 		yield return new WaitForSeconds(.025f);
 		cc.isTrigger = true;

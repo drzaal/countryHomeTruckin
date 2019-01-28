@@ -9,8 +9,13 @@ public class Player : MonoBehaviour {
 	[SerializeField] float accelerateSpeed;
 	[SerializeField] float reverseSpeed;
 	[SerializeField] float turnSpeed;
+	[SerializeField] float linearDrag;
+	[SerializeField] float angularDrag;
+	[SerializeField] float maxDepenetrationVelocity;
+	[SerializeField] float maxSpeed;
 
 	public Vector3 velocity;
+	public Vector3 angularVelocity;
 
 	// [SerializeField] float accelerationTime;
 	// [SerializeField] float reverseTime;
@@ -132,11 +137,16 @@ public class Player : MonoBehaviour {
 		if (GameManager.instance.haveWon)
 		{
 			zmove = 0;
+			xmove = 0;
 		}
 		else
 		{
 			DriveTruck();
 		}
+
+		angularVelocity = rb.angularVelocity;
+		velocity = rb.velocity;
+		Debug.Log(2 * Mathf.PI * xmove * turnSpeed);
 	}
 
 	void DriveTruck()
@@ -145,9 +155,7 @@ public class Player : MonoBehaviour {
 		zmove = Input.GetAxisRaw("Vertical");
 
 		// handle rotation (y axis)
-		if (Mathf.Abs(rb.velocity.x) > 0.001f && Mathf.Abs(rb.velocity.z) > 0.001f && xmove != 0) {
-			transform.Rotate(0, xmove * turnSpeed * Time.deltaTime, 0);
-		}
+			//transform.Rotate(0, xmove * turnSpeed * Time.deltaTime, 0);
 
 		if (xmove != 0) {
 			StartCoroutine(TurnWheels(xmove));
@@ -172,33 +180,33 @@ public class Player : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		rb.drag = linearDrag;
+		rb.maxDepenetrationVelocity = maxDepenetrationVelocity;
+		rb.angularDrag = angularDrag;
 
 		// handle forward and backward (z axis) movement
 		if (zmove != 0) {
 			// print(rb.velocity);
 			if (zmove > 0) {
-				// Accelerate(zmove);
-				rb.velocity += transform.forward * accelerateSpeed ;
-				// transform.position += transform.forward * accelerateSpeed;
-				// velocity = new Vector3(velocity.x, velocity.y, zmove * accelerateSpeed * Time.deltaTime);
-				// transform.position = new Vector3(transform.position.x, transform.position.y, zmove * accelerateSpeed * Time.deltaTime);
+				rb.AddForce(transform.forward * accelerateSpeed, ForceMode.VelocityChange);
 			} else if (zmove < 0) {
-				// Reverse();
-				rb.velocity -= transform.forward * reverseSpeed;
-				// transform.position -= transform.forward * reverseSpeed;
-				// velocity = new Vector3(velocity.x, velocity.y, zmove * reverseSpeed * Time.deltaTime);
-				// transform.position = new Vector3(transform.position.x, transform.position.y, zmove * reverseSpeed * Time.deltaTime);
+				rb.AddForce(-transform.forward * reverseSpeed, ForceMode.VelocityChange);
 			}
 		} else {
 			// print(rb.velocity);
-			rb.velocity = rb.velocity * 0.975f;
+
+			//rb.velocity = rb.velocity * 0.975f;
 		}
 
-		velocity = rb.velocity;
+		if (Mathf.Abs(velocity.x) > 0.001f || Mathf.Abs(velocity.z) > 0.001f) {
+			rb.AddTorque(new Vector3(0f, 2f * Mathf.PI * xmove * turnSpeed, 0f), ForceMode.Acceleration);
+		}
+		//rb.AddTorque(new Vector3(0f, 20f, 0f), ForceMode.VelocityChange);
+ 		rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 	}
 
 	void LateUpdate() {
-		transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+		// transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
 	}
 
 	void Accelerate() {
@@ -246,8 +254,9 @@ public class Player : MonoBehaviour {
 		Transform item = other.transform;
 
 		if (item.CompareTag("Food")) {
-			item.transform.localScale = new Vector3(.5f, .5f, .5f);
+			Vector3 oldScale = item.transform.lossyScale;
 			item.parent = possessions;
+			
 			item.GetComponent<Food>().Pickup();
 			Pickup();
 

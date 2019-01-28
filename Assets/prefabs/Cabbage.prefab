@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 2
   fallSpeed: 10
+  baseScale: 0.5
   foodType: 5
 --- !u!114 &114816451455104490
 MonoBehaviour:
